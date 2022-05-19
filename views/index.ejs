@@ -1,0 +1,35 @@
+<%- include('header') %>
+    <% if (entries.length) { %>
+        <% for (const entry of entries) { %>
+            <div class="card panel-default">
+                <div class="card-heading">
+                    <div class="alert alert-secondary" role="alert">
+                        <%= entry.published %>
+                    </div> 
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="text-muted pull-right">
+                                <%= entry.title %>
+                          </div> 
+                        </li>
+                        <li class="list-group-item">
+                            <%= entry.content %>
+                            </li>
+                      </ul>
+                </div>  
+            </div>
+            
+        <% } %>
+        <% if (entries.length==1) { %>
+            <div class="bg-light border">
+                📝 Uma pessoa deixou mensagem</div>
+                <% } else { %>
+                    📝 <%= entries.length %> pessoas deixaram uma mensagem <3
+                 <% } %>
+    <% } else { %>
+       Sem mensagens! <a href="/new-entry">Adicione uma!</a>
+    <% } %>
+
+  
+
+<%- include('footer') %>
